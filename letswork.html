@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Work International - Persoonlijke werving & selectie</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Let's Work International helpt werkgevers en kandidaten in Nederland met persoonlijke werving en selectie. Gevestigd in heel Nederland met specialisatie in schoonmaak, logistiek en productie.">
+    <meta name="keywords" content="uitzendbureau, werving en selectie, schoonmaakpersoneel, logistiek medewerker, Let's Work, Janneke de Vries">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Tailwind CSS voor hoogwaardige styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts voor een premium uitstraling -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons voor moderne iconen -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #18153B 0%, #2E2A60 50%, #A13CB8 100%);
+        }
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Essentieel voor de SPA Router: verbergt pagina's die niet actief zijn */
+        .hidden-page {
+            display: none !important;
+        }
+        /* Animatie voor het inladen van pagina's */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- MEERTALIGHEID ENGINE & TRANSLATIONS -->
+    <script>
+        const translations = {
+            nl: {
+                navHome: "Home",
+                navAbout: "Wie zijn wij",
+                navJobs: "Onze vacatures",
+                navEmployers: "Voor werkgevers",
+                navContact: "Contact",
+                heroTagline: "Persoonlijke werving & selectie met échte aandacht",
+                heroSub: "Wij geloven dat een fijne baan je leven inkleurt. Janneke en Yana verbinden gemotiveerde kandidaten en betrouwbare werkgevers door heel Nederland.",
+                heroSearchPlaceholder: "Waar ben je naar op zoek? (bijv. Schoonmaak, Logistiek)...",
+                heroSearchBtn: "Zoeken",
+                btnApply: "Solliciteer direct",
+                btnSeekerHero: "Ik zoek werk",
+                btnEmployerHero: "Ik zoek personeel",
+                sectionTitleJobs: "Vacatures in de spotlight",
+                sectionSubJobs: "Bekijk onze actuele openstaande functies en vind direct de match die bij je past.",
+                jobHours: "uur per week",
+                viewJobDetails: "Bekijk vacature",
+                close: "Sluiten",
+                aboutTitle: "Het gezicht achter Let's Work",
+                aboutDesc1: "Ik ben Janneke de Vries, de trotse oprichter van Let's Work International. Ondernemen is mijn passie, maar mensen écht verder helpen is mijn drijfveer. Samen met recruiter Yana zet ik me elke dag in voor die perfecte match.",
+                aboutDesc2: "We kijken verder dan een cv lang is. Motivatie, werklust en een positieve instelling zijn wat ons betreft veel belangrijker dan de juiste diploma's. Wij ontzorgen u volledig, zodat u kunt doen waar u goed in bent.",
+                whyUsTitle: "Waarom Let's Work International?",
+                whyUsSub: "Geen snelle beloftes, maar duurzame relaties op basis van onze drie krachtige P's.",
+                p1Title: "Positive (Altijd met een glimlach)",
+                p1Desc: "Wij denken in kansen en kijken met een frisse blik naar jouw toekomst. Een match is voor ons pas geslaagd als zowel de werkgever als de kandidaat écht gelukkig zijn.",
+                p2Title: "Perfect (Kwaliteit & Maatwerk)",
+                p2Desc: "Ieder mens en elk bedrijf is uniek. We nemen de tijd voor een diepgaande kennismaking en begeleiden de onboarding van A tot Z voor een vlekkeloze start.",
+                p3Title: "People (Oog voor mensen uit Oekraïne)",
+                p3Desc: "Onze bijzondere toewijding ligt bij het ondersteunen van internationale talenten. We bieden uitstekende banen, eerlijk loon en actieve hulp bij integratie en welzijn.",
+                contactTitle: "Stuur ons een bericht",
+                formName: "Je Naam",
+                formEmail: "E-mailadres",
+                formPhone: "Telefoonnummer",
+                formSubject1: "Kandidaat (ik zoek werk)",
+                formSubject2: "Werkgever (ik zoek personeel)",
+                formMessage: "Wat kunnen we voor je betekenen?",
+                formSubmit: "Bericht verzenden",
+                successSubmit: "Bedankt voor je bericht! Janneke of Yana neemt binnen 24 uur persoonlijk contact met je op via 06 81383816.",
+                footerText: "Anything for the Perfect Match. Persoonlijke, betrokken en betrouwbare werving & selectie door heel Nederland.",
+                reviewHeaderTitle: "Wat klanten & medewerkers zeggen",
+                reviewHeaderSub: "Met een perfecte 5.0 score op Google Maps bouwen we elke dag met trots aan duurzame samenwerkingen."
+            },
+            en: {
+                navHome: "Home",
+                navAbout: "Who We Are",
+                navJobs: "Our Vacancies",
+                navEmployers: "For Employers",
+                navContact: "Contact",
+                heroTagline: "Personal recruitment with genuine attention",
+                heroSub: "We believe that a good job brightens your life. Janneke and Yana connect motivated candidates and reliable employers throughout the Netherlands.",
+                heroSearchPlaceholder: "What are you looking for? (e.g., Cleaning, Logistics)...",
+                heroSearchBtn: "Search",
+                btnApply: "Apply now",
+                btnSeekerHero: "I'm looking for work",
+                btnEmployerHero: "I need staff",
+                sectionTitleJobs: "Spotlight Vacancies",
+                sectionSubJobs: "Check out our current open positions and find the match that fits you best.",
+                jobHours: "hours per week",
+                viewJobDetails: "View vacancy",
+                close: "Close",
+                aboutTitle: "The Face Behind Let's Work",
+                aboutDesc1: "I am Janneke de Vries, proud founder of Let's Work International. Entrepreneurship is my passion, but truly helping people forward is my motivation. Together with recruiter Yana, I strive every day for that perfect match.",
+                aboutDesc2: "We look beyond just a resume. Motivation, enthusiasm, and a positive attitude are far more important to us than having the right diplomas. We handle everything so you can focus on your strengths.",
+                whyUsTitle: "Why Let's Work International?",
+                whyUsSub: "No empty promises, but long-term relationships based on our three powerful Ps.",
+                p1Title: "Positive (Always with a smile)",
+                p1Desc: "We think in possibilities and look at your future with a fresh perspective. For us, a match is only successful when both parties are truly happy.",
+                p2Title: "Perfect (Quality & Customization)",
+                p2Desc: "Every person and every company is unique. We take the time for an in-depth introduction and guide onboarding from A to Z for a seamless start.",
+                p3Title: "People (Dedicated to Ukrainian talents)",
+                p3Desc: "Our special focus lies in supporting international talents. We offer excellent jobs, fair wages, and active help with integration and well-being.",
+                contactTitle: "Send us a message",
+                formName: "Your Name",
+                formEmail: "Email Address",
+                formPhone: "Phone Number",
+                formSubject1: "Candidate (looking for work)",
+                formSubject2: "Employer (looking for staff)",
+                formMessage: "How can we help you?",
+                formSubmit: "Send message",
+                successSubmit: "Thank you for your message! Janneke or Yana will get back to you within 24 hours.",
+                footerText: "Anything for the Perfect Match. Personal, committed, and reliable recruitment throughout the Netherlands.",
+                reviewHeaderTitle: "What clients & employees say",
+                reviewHeaderSub: "With a perfect 5.0 rating on Google Maps, we proudly build sustainable partnerships every day."
+            }
+        };
+
+        let currentLang = 'nl';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('bg-[#A13CB8]', 'text-white');
+                    btn.classList.remove('bg-white', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-[#A13CB8]', 'text-white');
+                    btn.classList.add('bg-white', 'text-slate-700');
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+
+            if (typeof renderVacancies === "function") renderVacancies();
+        }
+    </script>
+
+    <!-- TOP-BAR WITH SOCIAL LINKS & TRUST STATEMENT -->
+    <div class="bg-[#131135] text-white border-b border-white/10 text-xs py-2.5 px-4 sm:px-6 lg:px-8 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="flex items-center space-x-2 font-semibold text-[11px] text-slate-200">
+                <span class="inline-flex items-center px-2 py-0.5 rounded bg-[#A13CB8]/20 text-purple-300 border border-[#A13CB8]/30">
+                    Landelijke Dekking
+                </span>
+                <span class="hidden sm:inline">•</span>
+                <span class="hidden sm:inline">Persoonlijke werving & selectie door heel Nederland</span>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <span class="text-slate-300 hidden md:inline text-[11px]">Volg ons:</span>
+                <div class="flex items-center space-x-3.5">
+                    <a href="https://www.tiktok.com/@lets_work_international_" target="_blank" class="text-slate-200 hover:text-[#A13CB8] smooth-transition flex items-center" title="Volg Let's Work International op TikTok" aria-label="TikTok">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.94-1.74-.22-.2-.41-.45-.58-.7v5.13c.01 2.85-.99 5.86-3.32 7.37-2.33 1.57-5.61 1.73-7.98.37-2.31-1.28-3.77-3.92-3.66-6.59.04-2.85 1.77-5.59 4.41-6.53 1.14-.41 2.37-.53 3.57-.36v4.1c-.8-.24-1.68-.17-2.4.26-.84.47-1.39 1.4-1.38 2.37.01.99.6 1.94 1.47 2.34.82.39 1.83.33 2.56-.25.59-.44.89-1.18.88-1.91V.02z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/lets_work_international_/" target="_blank" class="text-slate-200 hover:text-[#A13CB8] smooth-transition flex items-center" title="Volg Let's Work International op Instagram" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" target="_blank" class="text-slate-200 hover:text-[#A13CB8] smooth-transition flex items-center" title="Facebook" aria-label="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" target="_blank" class="text-slate-200 hover:text-[#A13CB8] smooth-transition flex items-center" title="LinkedIn" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm smooth-transition">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <div class="flex-shrink-0 flex items-center space-x-3 cursor-pointer" onclick="navigate('home')">
+                    <div class="relative w-12 h-12 flex items-center justify-center">
+                        <svg class="w-12 h-12" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="45" cy="45" r="32" stroke="#A13CB8" stroke-width="7" />
+                            <circle cx="45" cy="45" r="28" fill="#F1F5F9" />
+                            <path d="M32 48C32 48 38 43 45 48C52 53 58 48 58 48" stroke="#2E2A60" stroke-width="4" stroke-linecap="round" />
+                            <path d="M38 53C38 53 42 49 45 52C48 55 52 52 52 52" stroke="#A13CB8" stroke-width="3" stroke-linecap="round" />
+                            <rect x="63" y="63" width="10" height="25" rx="5" transform="rotate(-45 63 63)" fill="#A13CB8" />
+                            <rect x="67" y="67" width="4" height="17" rx="2" transform="rotate(-45 67 67)" fill="#2E2A60" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight block leading-none text-[#2E2A60]">LET'S WORK</span>
+                        <span class="text-xs font-bold tracking-widest block uppercase mt-0.5 text-[#A13CB8]">INTERNATIONAL</span>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+                    <button onclick="navigate('home')" class="nav-link text-[#A13CB8] hover:text-[#A13CB8] smooth-transition" data-target="home" data-i18n="navHome">Home</button>
+                    <button onclick="navigate('about')" class="nav-link hover:text-[#A13CB8] smooth-transition" data-target="about" data-i18n="navAbout">Wie zijn wij</button>
+                    <button onclick="navigate('vacancies')" class="nav-link hover:text-[#A13CB8] smooth-transition" data-target="vacancies" data-i18n="navJobs">Onze vacatures</button>
+                    <button onclick="navigate('employers')" class="nav-link hover:text-[#A13CB8] smooth-transition" data-target="employers" data-i18n="navEmployers">Voor werkgevers</button>
+                    <button onclick="navigate('contact')" class="nav-link hover:text-[#A13CB8] smooth-transition" data-target="contact" data-i18n="navContact">Contact</button>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg">
+                        <button onclick="setLanguage('nl')" data-lang="nl" class="lang-btn px-2.5 py-1 text-xs font-bold rounded-md smooth-transition text-white shadow-sm bg-[#A13CB8]">NL</button>
+                        <button onclick="setLanguage('en')" data-lang="en" class="lang-btn px-2.5 py-1 text-xs font-bold rounded-md smooth-transition bg-white text-slate-700">EN</button>
+                    </div>
+
+                    <button onclick="navigate('contact')" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white rounded-lg smooth-transition shadow-md bg-[#A13CB8]">
+                        Kennismaken
+                    </button>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-[#A13CB8]" aria-label="Open mobiel menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 shadow-inner">
+            <button onclick="navigate('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-[#A13CB8] font-bold bg-slate-50 rounded-lg nav-link-mobile" data-target="home" data-i18n="navHome">Home</button>
+            <button onclick="navigate('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 font-medium hover:bg-slate-50 hover:text-[#A13CB8] rounded-lg nav-link-mobile" data-target="about" data-i18n="navAbout">Wie zijn wij</button>
+            <button onclick="navigate('vacancies'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 font-medium hover:bg-slate-50 hover:text-[#A13CB8] rounded-lg nav-link-mobile" data-target="vacancies" data-i18n="navJobs">Onze vacatures</button>
+            <button onclick="navigate('employers'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 font-medium hover:bg-slate-50 hover:text-[#A13CB8] rounded-lg nav-link-mobile" data-target="employers" data-i18n="navEmployers">Voor werkgevers</button>
+            <button onclick="navigate('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 font-medium hover:bg-slate-50 hover:text-[#A13CB8] rounded-lg nav-link-mobile" data-target="contact" data-i18n="navContact">Contact</button>
+        </div>
+    </header>
+
+    <!-- ============================================== MAIN BODY PAGES ============================================== -->
+    <main class="flex-grow relative">
+        
+        <!-- ==================== PAGE: HOME ==================== -->
+        <div id="view-home" class="page-view fade-in">
+            <!-- HERO SECTION -->
+            <section class="relative gradient-bg py-12 lg:py-24 overflow-hidden text-white">
+                <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center space-x-2 bg-white/10 text-purple-200 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-white/5">
+                                <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                                <span>Echt menselijk en betrouwbaar</span>
+                            </div>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight" data-i18n="heroTagline">
+                                Persoonlijke werving & selectie met échte aandacht
+                            </h1>
+                            <p class="text-sm sm:text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed" data-i18n="heroSub">
+                                Wij geloven dat een fijne baan je leven inkleurt. Janneke en Yana verbinden gemotiveerde kandidaten en betrouwbare werkgevers in heel Nederland aan een waardevolle samenwerking.
+                            </p>
+
+                            <!-- Conversiegerichte Hoofd-CTAs in Hero -->
+                            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                                <button onclick="navigate('vacancies')" class="px-5 py-3 sm:px-8 sm:py-4 bg-white text-[#2E2A60] font-bold rounded-xl smooth-transition shadow-lg hover:bg-slate-100 flex items-center justify-center space-x-2 text-xs sm:text-base">
+                                    <i data-lucide="search" class="w-4 h-4 sm:w-5 sm:h-5 text-[#A13CB8]"></i>
+                                    <span data-i18n="btnSeekerHero">Ik zoek werk</span>
+                                </button>
+                                <button onclick="navigate('contact'); switchContactTab('employer');" class="px-5 py-3 sm:px-8 sm:py-4 text-white font-bold rounded-xl smooth-transition border border-white/30 hover:bg-white/10 flex items-center justify-center space-x-2 text-xs sm:text-base bg-[#A13CB8]">
+                                    <i data-lucide="building-2" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                                    <span data-i18n="btnEmployerHero">Ik zoek personeel</span>
+                                </button>
+                            </div>
+
+                            <!-- Zoekbalk -->
+                            <div class="bg-white p-2 rounded-2xl shadow-xl max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row items-center gap-2 mt-6">
+                                <div class="flex items-center space-x-2 px-3 flex-grow w-full">
+                                    <i data-lucide="briefcase" class="text-slate-400 w-5 h-5 flex-shrink-0"></i>
+                                    <input type="text" id="hero-search-input" data-i18n-placeholder="heroSearchPlaceholder" placeholder="Waar ben je naar op zoek?..." class="w-full py-2.5 sm:py-3 text-slate-800 bg-transparent focus:outline-none text-xs sm:text-sm font-medium">
+                                </div>
+                                <button onclick="triggerSearchFromHero()" class="w-full sm:w-auto text-white font-bold px-6 py-3 rounded-xl smooth-transition text-xs sm:text-sm shadow-md bg-[#A13CB8]" data-i18n="heroSearchBtn">
+                                    Zoeken
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Matches Widget -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-full max-w-md">
+                                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-20 blur-lg"></div>
+                                <div class="relative bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-6 shadow-2xl">
+                                    <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center">
+                                                <i data-lucide="heart" class="text-purple-300 w-5 h-5"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-sm font-bold">Onze matches</h4>
+                                                <p class="text-[10px] text-slate-300">Medewerkers uit jouw regio</p>
+                                            </div>
+                                        </div>
+                                        <span class="px-2 py-1 text-[10px] font-bold uppercase rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/20">Trots op</span>
+                                    </div>
+
+                                    <div class="space-y-3">
+                                        <div class="bg-white/5 rounded-xl p-3 flex items-center justify-between border border-white/5">
+                                            <div class="flex items-center space-x-3">
+                                                <span class="text-xs font-bold bg-white/10 px-2 py-1 rounded-md text-slate-300">NL</span>
+                                                <div>
+                                                    <p class="text-xs font-semibold text-slate-200">Arjan (Rotterdam)</p>
+                                                    <p class="text-[10px] text-slate-300">Logistiek Medewerker • Snel bemiddeld</p>
+                                                </div>
+                                            </div>
+                                            <span class="text-xs font-medium text-[#A13CB8]">Geplaatst</span>
+                                        </div>
+
+                                        <div class="bg-white/5 rounded-xl p-3 flex items-center justify-between border border-white/5">
+                                            <div class="flex items-center space-x-3">
+                                                <span class="text-xs font-bold bg-white/10 px-2 py-1 rounded-md text-slate-300">UA</span>
+                                                <div>
+                                                    <p class="text-xs font-semibold text-slate-200">Olena (Utrecht)</p>
+                                                    <p class="text-[10px] text-slate-300">Hotel Schoonmaak • Fijne samenwerking</p>
+                                                </div>
+                                            </div>
+                                            <span class="text-xs font-medium text-[#A13CB8]">Succes</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
+                                        <span>Lokaal & internationaal talent</span>
+                                        <span class="flex items-center font-semibold text-[#A13CB8]">
+                                            Altijd betrokken <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- DOELGROEP DIRECT CTAS -->
+            <section class="py-12 mt-12 sm:mt-20 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <!-- Candidate Card -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 flex flex-col justify-between hover:translate-y-[-4px] smooth-transition group">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-purple-50 flex items-center justify-center smooth-transition group-hover:text-white group-hover:bg-[#A13CB8]">
+                                <i data-lucide="smile" class="w-6 h-6 sm:w-7 sm:h-7 text-[#A13CB8] group-hover:text-white smooth-transition"></i>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Ik zoek een leuke baan</h3>
+                            <p class="text-slate-600 leading-relaxed text-xs sm:text-base">
+                                Wil jij aan de slag in de schoonmaak, logistiek of productie met een goed salaris en een contactpersoon die echt naar je luistert?
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pt-2">
+                                <li class="flex items-center"><i data-lucide="heart" class="w-4 h-4 mr-2 flex-shrink-0 text-[#A13CB8]"></i> Wekelijkse, betrouwbare uitbetaling</li>
+                                <li class="flex items-center"><i data-lucide="heart" class="w-4 h-4 mr-2 flex-shrink-0 text-[#A13CB8]"></i> Begeleiding in je eigen taal</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 sm:mt-8 pt-4">
+                            <button onclick="navigate('contact'); switchContactTab('candidate');" class="inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm text-white font-bold rounded-xl smooth-transition shadow-lg shadow-purple-600/10 bg-[#A13CB8]">
+                                Schrijf je direct in
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Employer Card -->
+                    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 flex flex-col justify-between hover:translate-y-[-4px] smooth-transition group">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-slate-100 text-slate-800 flex items-center justify-center smooth-transition group-hover:bg-[#2E2A60] group-hover:text-white">
+                                <i data-lucide="briefcase" class="w-6 h-6 sm:w-7 sm:h-7 text-[#2E2A60] group-hover:text-white smooth-transition"></i>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Ik zoek gemotiveerd personeel</h3>
+                            <p class="text-slate-600 leading-relaxed text-xs sm:text-base">
+                                Heeft uw bedrijf tijdelijk of structureel extra handen nodig? Wij werven betrokken medewerkers die passen bij de cultuur van uw organisatie.
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pt-2">
+                                <li class="flex items-center"><i data-lucide="heart" class="w-4 h-4 mr-2 flex-shrink-0 text-[#A13CB8]"></i> Zorgvuldig gescreende krachten</li>
+                                <li class="flex items-center"><i data-lucide="heart" class="w-4 h-4 mr-2 flex-shrink-0 text-[#A13CB8]"></i> Wij regelen de onboarding en administratie</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 sm:mt-8 pt-4">
+                            <button onclick="navigate('employers')" class="inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 sm:px-6 sm:py-3.5 text-xs sm:text-sm text-white font-bold rounded-xl smooth-transition shadow-lg bg-[#2E2A60]">
+                                Meer informatie voor werkgevers
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPOTLIGHT VACANCIES SECTION -->
+            <section class="py-16 bg-slate-100 border-y border-slate-200 mt-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="sectionTitleJobs">Vacatures in de spotlight</h2>
+                        <p class="text-slate-600 text-xs sm:text-base" data-i18n="sectionSubJobs">Bekijk onze actuele openstaande functies en vind direct de match die bij je past.</p>
+                    </div>
+                    <!-- Spotlights Grid -->
+                    <div id="spotlight-vacancies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                        <!-- Spotlights worden via JS geladen -->
+                    </div>
+                    <div class="text-center mt-10">
+                        <button onclick="navigate('vacancies')" class="inline-flex items-center justify-center px-6 py-3.5 text-white font-bold rounded-xl smooth-transition bg-[#A13CB8] shadow-md text-xs sm:text-sm">
+                            Bekijk alle vacatures <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GOOGLE REVIEWS SECTION (HOME) -->
+            <section class="py-16 sm:py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                        <div class="inline-flex items-center space-x-2 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 shadow-sm text-xs font-bold text-slate-600">
+                            <!-- Google "G" representation -->
+                            <svg class="w-4 h-4 text-red-500 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.113-5.111 4.113-3.414 0-6.19-2.775-6.19-6.19 0-3.414 2.776-6.19 6.19-6.19 1.483 0 2.845.525 3.93 1.387l3.107-3.11C19.16 2.651 15.932 1.5 12.24 1.5 6.308 1.5 1.5 6.308 1.5 12.24s4.808 10.74 10.74 10.74c5.805 0 10.82-4.143 10.82-10.74 0-.712-.06-1.425-.18-1.955H12.24z"/>
+                            </svg>
+                            <span>Google Reviews score</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="reviewHeaderTitle">Wat klanten & medewerkers zeggen</h2>
+                        <p class="text-slate-600 text-xs sm:text-base" data-i18n="reviewHeaderSub">Met een perfecte 5.0 score op Google Maps bouwen we elke dag met trots aan duurzame samenwerkingen.</p>
+                        
+                        <a href="https://www.google.com/maps/place/Let's+Work+International+BV./@52.1853083,3.8560862,8z/data=!4m10!1m2!2m1!1slet's+work+international!3m6!1s0x4c983e4a9822666b:0x24c77d28a26231c9!8m2!3d52.1909763!4d5.2795551" target="_blank" class="inline-flex items-center justify-center space-x-2 pt-2 group" title="Bekijk ons Google Bedrijfsprofiel">
+                            <span class="text-2xl font-black text-slate-900">5,0</span>
+                            <div class="flex items-center text-amber-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-xs text-slate-500 font-semibold group-hover:text-[#A13CB8] smooth-transition">(13 reviews)</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400 group-hover:text-[#A13CB8] smooth-transition"></i>
+                        </a>
+                    </div>
+
+                    <!-- Reviews Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                        <!-- Review 1: Astrid -->
+                        <div class="bg-slate-50 rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md smooth-transition">
+                            <div class="space-y-4">
+                                <div class="flex items-center text-amber-400">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+                                    "Sinds december 2024 werken wij samen met LWI en zijn daar super tevreden over. Zeer korte lijnen met Janneke. Zij staat 24/7 aan :), altijd naar een oplossing zoekt, meedenkt en heel veel tijd stopt in het screenen en voeren van gesprekken met (mogelijke) kandidaten. Zij en Yana verdienen zeker 5 sterren!!!"
+                                </p>
+                            </div>
+                            <div class="flex items-center space-x-3 pt-6 mt-6 border-t border-slate-200">
+                                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-extrabold text-sm">AT</div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-slate-900">Astrid Trenidad</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium">3 reviews • een jaar geleden</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2: Marianne -->
+                        <div class="bg-slate-50 rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md smooth-transition">
+                            <div class="space-y-4">
+                                <div class="flex items-center text-amber-400">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+                                    "Lets Work International heeft echt hart voor de mensen (Oekraïners) die ze plaatsen en er zijn zeer korte lijnen naar ons als opdrachtgever. Wij ervaren de samenwerking met Lets Work als zeer prettig."
+                                </p>
+                            </div>
+                            <div class="flex items-center space-x-3 pt-6 mt-6 border-t border-slate-200">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-[#A13CB8] font-extrabold text-sm">MV</div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-slate-900">Marianne de Vos</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium">2 reviews • een jaar geleden</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3: Hendrik -->
+                        <div class="bg-slate-50 rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md smooth-transition">
+                            <div class="space-y-4">
+                                <div class="flex items-center text-amber-400">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="inline-block px-1.5 py-0.5 rounded-md text-[9px] font-bold bg-purple-100 text-[#A13CB8] uppercase tracking-wider mb-2">Nieuw</span>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+                                    "Wat een top uitzendbureau! Altijd goede service, oplossingsgericht en echt altijd bereikbaar. De meiden (Janneke en Yana) doen er alles aan om zowel de klant als de werknemer tevreden te stellen. Ze denken met je mee en regelen alles snel en professioneel. Echt een fijne samenwerking, zeker een aanrader!"
+                                </p>
+                            </div>
+                            <div class="flex items-center space-x-3 pt-6 mt-6 border-t border-slate-200">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-extrabold text-sm">HO</div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-slate-900">Hendrik Out</h4>
+                                    <span class="text-[10px] text-slate-400 font-medium">1 review • 3 weken geleden</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE: ABOUT (Wie zijn wij) ==================== -->
+        <div id="view-about" class="page-view hidden fade-in">
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        
+                        <!-- Team Image -->
+                        <div class="lg:col-span-5 relative">
+                            <div class="absolute inset-0 rounded-3xl rotate-3 scale-95 opacity-10 bg-[#A13CB8]"></div>
+                            <div class="relative bg-white p-4 rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+                                <div class="relative overflow-hidden rounded-2xl h-72 sm:h-96 flex flex-col justify-end text-white group shadow-inner">
+                                    <img src="https://i.postimg.cc/kXNHJGWj/2a9b8ccf-9ba4-405d-85eb-d8828fdaa305.jpg" alt="Janneke de Vries & Yana" class="absolute inset-0 w-full h-full object-cover smooth-transition group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 sm:p-6">
+                                        <div class="relative z-10 space-y-1">
+                                            <h4 class="text-xl sm:text-2xl font-extrabold">Janneke de Vries & Yana</h4>
+                                            <p class="text-xs text-purple-200 font-bold uppercase">De drijvende kracht achter Let's Work</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content Wie zijn wij -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <span class="text-xs font-bold uppercase tracking-widest text-[#A13CB8]">Wie zijn wij</span>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="aboutTitle">Het gezicht achter Let's Work</h2>
+                            <div class="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                                <p data-i18n="aboutDesc1">
+                                    Ik ben Janneke de Vries, de trotse oprichter van Let's Work International. Ondernemen is mijn passie, maar mensen écht verder helpen is mijn drijfveer. Samen met recruiter Yana zet ik me elke dag in voor die perfecte match.
+                                </p>
+                                <p data-i18n="aboutDesc2">
+                                    We kijken verder dan een cv lang is. Motivatie, werklust en een positieve instelling zijn wat ons betreft veel belangrijker dan de juiste diploma's. Wij ontzorgen u volledig, zodat u kunt doen waar u goed in bent.
+                                </p>
+                            </div>
+
+                            <!-- Highlights -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-slate-200">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="w-4 h-4 text-[#A13CB8]"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold text-slate-700">Werving & selectie op maat</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="w-4 h-4 text-[#A13CB8]"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold text-slate-700">Schoonmaak specialist</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="w-4 h-4 text-[#A13CB8]"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold text-slate-700">Duidelijke communicatie</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="check" class="w-4 h-4 text-[#A13CB8]"></i>
+                                    </div>
+                                    <span class="text-sm font-semibold text-slate-700">Ondersteuning bij integratie</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- THREE P'S -->
+            <section class="py-16 bg-slate-50 border-t border-slate-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="whyUsTitle">Waarom Let's Work International?</h3>
+                        <p class="text-slate-600 text-xs sm:text-base mt-2" data-i18n="whyUsSub">Geen snelle beloftes, maar duurzame relaties op basis van onze drie krachtige P's.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                        <!-- P1 -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md smooth-transition flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center font-bold text-xl text-[#A13CB8]">1</div>
+                                <h4 class="text-lg font-bold text-slate-900" data-i18n="p1Title">Positive (Altijd met een glimlach)</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="p1Desc">
+                                    Wij denken in kansen en kijken met een frisse blik naar jouw toekomst. Een match is voor ons pas geslaagd als zowel de werkgever als de kandidaat écht gelukkig zijn.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- P2 -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md smooth-transition flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl">2</div>
+                                <h4 class="text-lg font-bold text-slate-900" data-i18n="p2Title">Perfect (Kwaliteit & Maatwerk)</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="p2Desc">
+                                    Ieder mens en elk bedrijf is uniek. We nemen de tijd voor een diepgaande kennismaking en begeleiden de onboarding van A tot Z voor een vlekkeloze start.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- P3 -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-md smooth-transition flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-xl">3</div>
+                                <h4 class="text-lg font-bold text-slate-900" data-i18n="p3Title">People (Oog voor mensen uit Oekraïne)</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed" data-i18n="p3Desc">
+                                    Onze bijzondere focus ligt bij het ondersteunen van internationale talenten. We bieden uitstekende banen, eerlijk loon en actieve hulp bij integratie en welzijn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE: ONZE VACATURES ==================== -->
+        <div id="view-vacancies" class="page-view hidden fade-in">
+            <section class="py-12 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[#A13CB8]">Vind jouw droombaan</span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="navJobs">Onze vacatures</h2>
+                        <p class="text-slate-600 text-xs sm:text-base">Bekijk onze actuele openstaande functies en vind direct de match die bij je past.</p>
+                    </div>
+
+                    <!-- Filters & Zoekbalk -->
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 pb-4 border-b border-slate-200">
+                        <!-- Categorieën -->
+                        <div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto" id="sector-filters">
+                            <button onclick="filterVacancies('All')" class="sector-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold rounded-full border border-slate-200 text-white smooth-transition shadow-sm bg-[#A13CB8]" data-i18n="allSectors">Alle vacatures</button>
+                            <button onclick="filterVacancies('Schoonmaak')" class="sector-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 smooth-transition" data-i18n="sectorCleaning">Schoonmaak</button>
+                            <button onclick="filterVacancies('Logistiek')" class="sector-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 smooth-transition" data-i18n="sectorLogistics">Logistiek</button>
+                            <button onclick="filterVacancies('Productie')" class="sector-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 smooth-transition" data-i18n="sectorProduction">Productie & Techniek</button>
+                        </div>
+
+                        <!-- Zoek input -->
+                        <div class="relative w-full md:w-80">
+                            <input type="text" id="job-search-filter" oninput="filterVacanciesBySearch()" placeholder="Filter op trefwoord..." class="w-full pl-10 pr-4 py-2 sm:py-2.5 text-xs sm:text-sm bg-white rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-800 font-medium shadow-sm">
+                            <i data-lucide="filter" class="absolute left-3.5 top-2.5 sm:top-3 text-slate-400 w-4 h-4"></i>
+                        </div>
+                    </div>
+
+                    <!-- Vacature Grid -->
+                    <div id="vacancies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                        <!-- Dynamische vacatures worden hier geplaatst via javascript -->
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE: FOR EMPLOYERS ==================== -->
+        <div id="view-employers" class="page-view hidden fade-in">
+            <!-- Hero section employers -->
+            <section class="relative bg-slate-900 text-white py-16 sm:py-24 overflow-hidden">
+                <div class="absolute inset-0 bg-[#2E2A60]/95"></div>
+                <div class="absolute top-0 right-0 w-80 h-80 bg-[#A13CB8]/10 rounded-full blur-3xl"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-[#A13CB8]">Betrouwbare Personeelsoplossingen</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Ontzorging in werving & selectie</h2>
+                    <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto mt-4 font-light leading-relaxed">
+                        Heeft uw organisatie behoefte aan gemotiveerd lokaal of internationaal personeel? Wij werven, selecteren en begeleiden de perfecte match voor uw branches.
+                    </p>
+                    <div class="pt-4">
+                        <button onclick="navigate('contact'); switchContactTab('employer');" class="px-6 py-3.5 text-white font-bold rounded-xl smooth-transition bg-[#A13CB8] text-xs sm:text-sm shadow-lg shadow-purple-600/30">
+                            Direct personeel aanvragen
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Onze Aanpak (4-Stappenplan) -->
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[#A13CB8]">Onze Aanpak</span>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900">Hoe wij de perfecte match garanderen</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm">Een gestructureerd proces gebaseerd op kwaliteit, korte communicatielijnen en oprechte menselijke aandacht.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                        <div class="space-y-4 relative">
+                            <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center font-bold text-lg shadow-sm border border-purple-100">01</div>
+                            <h4 class="text-lg font-bold text-slate-900">Kennismaking & Analyse</h4>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                We komen graag bij u op locatie langs om de bedrijfscultuur te proeven en de specifieke behoeften van de vacature in kaart te brengen.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center font-bold text-lg shadow-sm border border-purple-100">02</div>
+                            <h4 class="text-lg font-bold text-slate-900">Werving & Screening</h4>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                Dankzij ons brede netwerk bereiken we snel zowel lokale talenten als gemotiveerde Oekraïense krachten. We screenen grondig op motivatie.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center font-bold text-lg shadow-sm border border-purple-100">03</div>
+                            <h4 class="text-lg font-bold text-slate-900">Zorgeloze Onboarding</h4>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                Wij regelen de administratie en begeleiden de onboarding. Bij internationale krachten ondersteunen we bovendien intensief bij integratie en huisvesting.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center font-bold text-lg shadow-sm border border-purple-100">04</div>
+                            <h4 class="text-lg font-bold text-slate-900">Duurzame Match</h4>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                Ook na de plaatsing houden we wekelijks contact om te zorgen dat de samenwerking vlekkeloos en naar volle tevredenheid blijft verlopen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Onze Focus Branches -->
+            <section class="py-16 bg-slate-50 border-t border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[#A13CB8]">Onze Specialismen</span>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900">Specialisten in 3 hoofdsectoren</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm">Doordat we zelf jarenlange ervaring hebben in deze branches, snappen we precies wat voor krachten u zoekt.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md smooth-transition">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center">
+                                    <i data-lucide="brush" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-slate-900">Schoonmaak & Facilitair</h4>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    Van specialistische industriële reiniging tot reguliere kantoor- en hotelonderhoud. Wij leveren representatieve en vakkundige medewerkers die direct zelfstandig aan de slag kunnen.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-100 mt-6 text-xs text-slate-400 font-semibold uppercase tracking-wider">Direct inzetbaar • Ervaren krachten</div>
+                        </div>
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md smooth-transition">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center">
+                                    <i data-lucide="package" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-slate-900">Logistiek & Magazijn</h4>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    Betrouwbare orderpickers, inpakkers en gecertificeerde heftruckchauffeurs voor uw distributiecentrum of magazijn. Flexibel op- en afschalen wanneer de piekperiodes erom vragen.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-100 mt-6 text-xs text-slate-400 font-semibold uppercase tracking-wider">Flexibel schaalbaar • Heftruck & reachtruck</div>
+                        </div>
+                        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md smooth-transition">
+                            <div class="space-y-4">
+                                <div class="w-12 h-12 bg-purple-50 text-[#A13CB8] rounded-2xl flex items-center justify-center">
+                                    <i data-lucide="settings" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-slate-900">Productie & Techniek</h4>
+                                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    Aanpakkers voor de verpakkingslijn, kwaliteitscontroleurs en assemblagekrachten. Wij selecteren mensen met oog voor kwaliteit, veiligheid en een uitstekende werkhouding.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-100 mt-6 text-xs text-slate-400 font-semibold uppercase tracking-wider">No-nonsense instelling • Hoge werklust</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cijfers / Statistieken -->
+            <section class="py-16 bg-[#131135] text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="space-y-2">
+                            <p class="text-4xl sm:text-5xl font-black text-[#A13CB8]">24/7</p>
+                            <h4 class="text-base font-bold text-white">Bereikbaar</h4>
+                            <p class="text-slate-400 text-xs max-w-xs mx-auto">Korte lijnen. Wij staan altijd aan om direct te schakelen bij acute personeelsbehoefte.</p>
+                        </div>
+                        <div class="space-y-2 border-y md:border-y-0 md:border-x border-white/10 py-8 md:py-0">
+                            <p class="text-4xl sm:text-5xl font-black text-[#A13CB8]">92%</p>
+                            <h4 class="text-base font-bold text-white">Retentiegraad</h4>
+                            <p class="text-slate-400 text-xs max-w-xs mx-auto">Dankzij onze intensieve, persoonlijke begeleiding blijven onze kandidaten langer en met meer plezier bij u werken.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-4xl sm:text-5xl font-black text-[#A13CB8]">48 uur</p>
+                            <h4 class="text-base font-bold text-white">Gemiddelde Match</h4>
+                            <p class="text-slate-400 text-xs max-w-xs mx-auto">Snelheid zonder kwaliteitsverlies. Door onze actieve werving kunnen we vaak binnen twee dagen de juiste kandidaat voorstellen.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE: CONTACT ==================== -->
+        <div id="view-contact" class="page-view hidden fade-in">
+            <section class="py-12 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        
+                        <!-- Contact info panel -->
+                        <div class="space-y-6">
+                            <span class="text-xs font-bold uppercase tracking-widest text-[#A13CB8]">Direct contact</span>
+                            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Laten we kennismaken</h2>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                Heb je een vraag, wil je sparren over personeelsbezetting of ben je zelf op zoek naar een fijne werkplek? Aarzel niet om contact met ons op te nemen. De koffie staat klaar!
+                            </p>
+
+                            <div class="space-y-4 pt-4 border-t border-slate-100">
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-[#A13CB8] flex-shrink-0">
+                                        <i data-lucide="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400 font-bold uppercase tracking-wider">E-mail</span>
+                                        <span class="text-sm font-semibold">info@letsworkinternational.nl</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-[#A13CB8] flex-shrink-0">
+                                        <i data-lucide="phone" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400 font-bold uppercase tracking-wider">Telefoon</span>
+                                        <span class="text-sm font-semibold">06 81383816</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-[#A13CB8] flex-shrink-0">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-slate-400 font-bold uppercase tracking-wider">Regio</span>
+                                        <span class="text-sm font-semibold">Nederland / Landelijke dekking</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Teamfoto Box -->
+                        <div class="relative bg-white p-4 rounded-3xl shadow-xl border border-slate-100 overflow-hidden h-72 sm:h-auto">
+                            <div class="relative overflow-hidden rounded-2xl h-full min-h-[250px] flex flex-col justify-end text-white group shadow-inner">
+                                <img src="https://i.postimg.cc/kXNHJGWj/2a9b8ccf-9ba4-405d-85eb-d8828fdaa305.jpg" alt="Janneke de Vries & Yana" class="absolute inset-0 w-full h-full object-cover smooth-transition group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5">
+                                    <div class="relative z-10 space-y-1">
+                                        <h4 class="text-lg sm:text-xl font-extrabold">Janneke & Yana</h4>
+                                        <p class="text-xs text-purple-200 font-bold uppercase">Let's Work International</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- DYNAMIC CONTACT FORM (In de contact pagina, voor de SPA navigatie) -->
+            <section class="py-16 text-white relative overflow-hidden bg-[#2E2A60]" id="contact-form-section">
+                <div class="absolute inset-0 bg-purple-900/10 mix-blend-overlay"></div>
+                
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center mb-10 space-y-2">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="contactTitle">Stuur ons een bericht</h3>
+                        <p class="text-slate-300 text-xs sm:text-base">Kies of je contact opneemt als werkgever of kandidaat.</p>
+                    </div>
+
+                    <!-- Formulier Tabs (Kandidaat vs Werkgever) -->
+                    <div class="flex justify-center mb-6 sm:mb-8">
+                        <div class="bg-white/10 p-1.5 rounded-xl flex space-x-1 border border-white/5 w-full max-w-md">
+                            <button onclick="switchContactTab('candidate')" id="tab-candidate-btn" class="flex-1 py-2 sm:py-2.5 rounded-lg text-[11px] sm:text-sm font-bold smooth-transition text-white bg-[#A13CB8]" aria-label="Toon kandidaatformulier">
+                                <span data-i18n="formSubject1">Kandidaat (ik zoek werk)</span>
+                            </button>
+                            <button onclick="switchContactTab('employer')" id="tab-employer-btn" class="flex-1 py-2 sm:py-2.5 rounded-lg text-[11px] sm:text-sm font-bold smooth-transition text-slate-300 hover:text-white" aria-label="Toon werkgeversformulier">
+                                <span data-i18n="formSubject2">Werkgever (ik zoek personeel)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Formulier Kaart -->
+                    <div class="bg-white/5 backdrop-blur-md rounded-3xl p-5 sm:p-10 border border-white/10 shadow-2xl">
+                        <form id="unified-contact-form" onsubmit="handleFormSubmission(event)" class="space-y-5 sm:space-y-6">
+                            <input type="hidden" id="form-tab-subject" value="kandidaat">
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                                <div class="space-y-1.5 sm:space-y-2">
+                                    <label for="form-name" class="block text-[11px] font-bold uppercase tracking-wider text-slate-300" data-i18n="formName">Je Naam</label>
+                                    <input type="text" id="form-name" required class="w-full bg-white/5 border border-white/10 focus:border-purple-400 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 text-white font-medium placeholder-white/20" placeholder="Bijv. Jan de Vries">
+                                </div>
+                                <div class="space-y-1.5 sm:space-y-2">
+                                    <label for="form-email" class="block text-[11px] font-bold uppercase tracking-wider text-slate-300" data-i18n="formEmail">E-mailadres</label>
+                                    <input type="email" id="form-email" required class="w-full bg-white/5 border border-white/10 focus:border-purple-400 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 text-white font-medium placeholder-white/20" placeholder="naam@voorbeeld.nl">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                                <div class="space-y-1.5 sm:space-y-2">
+                                    <label for="form-phone" class="block text-[11px] font-bold uppercase tracking-wider text-slate-300" data-i18n="formPhone">Telefoonnummer</label>
+                                    <input type="tel" id="form-phone" required class="w-full bg-white/5 border border-white/10 focus:border-purple-400 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 text-white font-medium placeholder-white/20" placeholder="06 81383816">
+                                </div>
+                                <div class="space-y-1.5 sm:space-y-2" id="dynamic-upload-container">
+                                    <label for="form-cv" class="block text-[11px] font-bold uppercase tracking-wider text-slate-300">CV Upload (Optioneel)</label>
+                                    <input type="file" id="form-cv" class="w-full bg-white/5 border border-white/10 focus:border-purple-400 rounded-xl px-4 py-2 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 text-slate-300 font-medium file:mr-3 file:py-1 file:px-2.5 file:rounded-md file:border-0 file:text-[11px] file:font-semibold file:text-white hover:file:opacity-90" style="--tw-bg-opacity: 1; file:background-color: #A13CB8;">
+                                </div>
+                                <div class="space-y-1.5 sm:space-y-2 hidden-page" id="dynamic-company-container" style="display: none;">
+                                    <label for="form-company" class="block text-[11px] font-bold uppercase tracking-wider text-slate-300">Bedrijfsnaam</label>
+                                    <input type="text" id="form-company" class="w-full bg-white/5 border border-white/10 focus:border-purple-400 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 text-white font-medium placeholder-white/20" placeholder="Naam van uw organisatie">
+                                </div>
+                            </div>
+
+                            <div class="space-y-1.5 sm:space-y-2">
+                                <label for="form-message" class="block text-[11px] font-bold uppercase tracking-wider text-slate-300" data-i18n="formMessage">Wat kunnen we voor je betekenen?</label>
+                                <textarea id="form-message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 text-white font-medium placeholder-white/20" placeholder="Ik wil graag..."></textarea>
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="submit" class="w-full hover:opacity-90 text-white font-bold py-3.5 px-6 rounded-xl smooth-transition shadow-lg text-xs sm:text-sm flex items-center justify-center space-x-2 bg-[#A13CB8]">
+                                    <span data-i18n="formSubmit">Bericht verzenden</span>
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Succes melding -->
+                        <div id="form-success-alert" class="hidden mt-6 p-4 bg-emerald-500/20 border border-emerald-500/30 text-emerald-200 rounded-xl flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                            </div>
+                            <p class="text-xs sm:text-sm font-medium" data-i18n="successSubmit">Bedankt voor je bericht! Janneke of Yana neemt binnen 24 uur persoonlijk contact met je op.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== ADMIN PANEL VIEW ==================== -->
+        <div id="view-admin" class="page-view hidden bg-slate-100 py-12 fade-in">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-200">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 pb-4 mb-6">
+                        <h2 class="text-2xl font-black text-slate-900 flex items-center gap-2">
+                            <i data-lucide="sliders" class="text-[#A13CB8] w-6 h-6"></i> Beheerpaneel Vacatures
+                        </h2>
+                        <button onclick="navigate('home')" class="px-4 py-2 bg-slate-200 rounded-xl text-xs font-bold hover:bg-slate-300 smooth-transition">Dashboard Sluiten</button>
+                    </div>
+
+                    <!-- Formulier om toe te voegen / te bewerken -->
+                    <div class="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-100 mb-8">
+                        <h3 id="admin-form-title" class="text-lg font-bold mb-4 text-[#2E2A60]">Nieuwe Vacature Toevoegen</h3>
+                        
+                        <!-- Admin Success Toast -->
+                        <div id="admin-success-msg" class="hidden mb-4 p-3 bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl text-sm font-bold flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i> Vacature succesvol opgeslagen!
+                        </div>
+
+                        <form id="admin-job-form" onsubmit="saveVacature(event)" class="space-y-4">
+                            <input type="hidden" id="edit-index" value="">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Functietitel (NL)</label>
+                                    <input type="text" id="admin-title-nl" required class="w-full p-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-400 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Locatie / Regio</label>
+                                    <input type="text" id="admin-location" required class="w-full p-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Bijv. Rotterdam">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Sector / Categorie</label>
+                                    <select id="admin-sector" class="w-full p-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-400 focus:outline-none">
+                                        <option value="Schoonmaak">Schoonmaak</option>
+                                        <option value="Logistiek">Logistiek</option>
+                                        <option value="Productie">Productie & Techniek</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Uren per week</label>
+                                    <input type="text" id="admin-hours" required class="w-full p-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Bijv. 32 - 40">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Salaris (Optioneel)</label>
+                                    <input type="text" id="admin-salary" class="w-full p-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-400 focus:outline-none" placeholder="Bijv. €14,50 p/u">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Omschrijving / Details (NL)</label>
+                                <textarea id="admin-desc-nl" rows="3" required class="w-full p-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-[#A13CB8] text-white font-bold rounded-xl text-sm shadow-md hover:opacity-90 smooth-transition">Vacature Opslaan</button>
+                        </form>
+                    </div>
+
+                    <!-- Huidige vacatures lijst -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-slate-800">Huidige Live Vacatures</h3>
+                        <div id="admin-vacancies-list" class="space-y-3">
+                            <!-- Dynamische lijst met vacatures -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- CUSTOM HTML MODALS -->
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="admin-login-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-2xl border border-slate-100 smooth-transition overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r" style="background: linear-gradient(90deg, #2E2A60 0%, #A13CB8 100%);"></div>
+            
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600" aria-label="Sluit inlogscherm">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="space-y-4 mt-2 text-center">
+                <div class="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center text-[#A13CB8] mx-auto shadow-sm">
+                    <i data-lucide="lock" class="w-7 h-7"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Beheerder Toegang</h3>
+                <p class="text-xs sm:text-sm text-slate-500 pb-2">Voer de toegangscode in om de vacatures te beheren.</p>
+                
+                <input type="password" id="admin-password-input" class="w-full p-3 border border-slate-300 rounded-xl text-center text-lg tracking-widest focus:outline-none focus:ring-2 focus:ring-purple-400" placeholder="••••••••">
+                <p id="admin-login-error" class="hidden text-xs font-bold text-red-500 mt-1">Onjuiste toegangscode. Probeer opnieuw.</p>
+
+                <div class="pt-4">
+                    <button onclick="checkAdminPassword()" class="w-full px-6 py-3.5 text-white font-bold rounded-xl smooth-transition bg-[#A13CB8] shadow-md hover:bg-purple-700">
+                        Inloggen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DELETE CONFIRM MODAL -->
+    <div id="delete-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 sm:p-8 shadow-2xl border border-slate-100 smooth-transition overflow-hidden text-center">
+            <div class="w-14 h-14 bg-red-50 rounded-full flex items-center justify-center text-red-500 mx-auto mb-4 shadow-sm">
+                <i data-lucide="alert-triangle" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Vacature verwijderen?</h3>
+            <p class="text-sm text-slate-500 mb-6">Weet je zeker dat je deze vacature definitief wilt verwijderen? Dit kan niet ongedaan worden gemaakt.</p>
+            <input type="hidden" id="delete-target-index">
+            <div class="flex gap-3">
+                <button onclick="closeDeleteModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl smooth-transition">Annuleren</button>
+                <button onclick="confirmDeleteVacature()" class="flex-1 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl smooth-transition shadow-md">Verwijderen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VACATURE DETAIL MODAL -->
+    <div id="vacancy-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 smooth-transition overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r" style="background: linear-gradient(90deg, #2E2A60 0%, #A13CB8 100%);"></div>
+            
+            <button onclick="closeVacancyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600" aria-label="Sluit modal">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="space-y-5 mt-4" id="modal-content-area">
+                <!-- Content wordt dynamisch ingeladen via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- LOKAAL INFO MODAL -->
+    <div id="lokaal-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 smooth-transition overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r" style="background: linear-gradient(90deg, #2E2A60 0%, #A13CB8 100%);"></div>
+            <button onclick="closeLokaalModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600" aria-label="Sluit modal">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="space-y-4 mt-4 text-center">
+                <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center text-[#A13CB8] mx-auto shadow-sm">
+                    <i data-lucide="info" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Let's Work Lokaal</h3>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                    U wordt nu doorgestuurd naar Let's Work Lokaal (speciaal ingericht voor medewerkers zonder internationale achtergrond).
+                </p>
+                <div class="pt-2 flex justify-center">
+                    <button onclick="closeLokaalModal()" class="px-6 py-2.5 text-white font-bold rounded-xl smooth-transition bg-[#A13CB8] text-xs">
+                        Begrepen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#131135] text-slate-400 py-12 border-t border-white/10 text-xs mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="relative w-8 h-8 flex items-center justify-center">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="45" cy="45" r="32" stroke="#A13CB8" stroke-width="7" />
+                                <circle cx="45" cy="45" r="28" fill="#F1F5F9" />
+                                <path d="M32 48C32 48 38 43 45 48C52 53 58 48 58 48" stroke="#2E2A60" stroke-width="4" stroke-linecap="round" />
+                                <rect x="63" y="63" width="10" height="25" rx="5" transform="rotate(-45 63 63)" fill="#A13CB8" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-base font-black text-white block">LET'S WORK</span>
+                            <span class="block text-[8px] font-bold uppercase tracking-widest mt-0.5 text-[#A13CB8]">INTERNATIONAL</span>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-relaxed" data-i18n="footerText">
+                        Anything for the Perfect Match. Persoonlijke, betrokken en betrouwbare werving & selectie door heel Nederland.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider" data-i18n="footerCol1">Navigatie</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="navigate('home')" class="hover:text-white text-left smooth-transition" data-i18n="navHome">Home</button></li>
+                        <li><button onclick="navigate('about')" class="hover:text-white text-left smooth-transition" data-i18n="navAbout">Wie zijn wij</button></li>
+                        <li><button onclick="navigate('vacancies')" class="hover:text-white text-left smooth-transition" data-i18n="navJobs">Onze vacatures</button></li>
+                        <li><button onclick="navigate('employers')" class="hover:text-white text-left smooth-transition" data-i18n="navEmployers">Voor werkgevers</button></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider" data-i18n="footerCol2">Onze branches</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="navigate('vacancies'); filterVacancies('Schoonmaak')" class="hover:text-white text-left smooth-transition" data-i18n="sectorCleaning">Schoonmaak</button></li>
+                        <li><button onclick="navigate('vacancies'); filterVacancies('Logistiek')" class="hover:text-white text-left smooth-transition" data-i18n="sectorLogistics">Logistiek</button></li>
+                        <li><button onclick="navigate('vacancies'); filterVacancies('Productie')" class="hover:text-white text-left smooth-transition" data-i18n="sectorProduction">Productie & Techniek</button></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider" data-i18n="footerCol3">Contact</h4>
+                    <ul class="space-y-3 text-xs">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-purple-400"></i>
+                            <span>info@letsworkinternational.nl</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-purple-400"></i>
+                            <span>06 81383816</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-purple-400"></i>
+                            <span>Nederland / Landelijke dekking</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom panel with admin credentials link -->
+            <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <p>&copy; 2026 Let's Work International. Alle rechten voorbehouden.</p>
+                <div class="flex items-center space-x-4">
+                    <!-- ADMIN TRIGGER BUTTON -->
+                    <button onclick="loginAdmin()" class="flex items-center gap-1.5 text-slate-500 hover:text-white smooth-transition">
+                        <i data-lucide="lock" class="w-3.5 h-3.5"></i> Beheerder
+                    </button>
+                    
+                    <a href="https://www.tiktok.com/@lets_work_international_" target="_blank" class="p-2 bg-white/5 rounded-full hover:bg-purple-600 hover:text-white smooth-transition" title="TikTok" aria-label="TikTok">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.94-1.74-.22-.2-.41-.45-.58-.7v5.13c.01 2.85-.99 5.86-3.32 7.37-2.33 1.57-5.61 1.73-7.98.37-2.31-1.28-3.77-3.92-3.66-6.59.04-2.85 1.77-5.59 4.41-6.53 1.14-.41 2.37-.53 3.57-.36v4.1c-.8-.24-1.68-.17-2.4.26-.84.47-1.39 1.4-1.38 2.37.01.99.6 1.94 1.47 2.34.82.39 1.83.33 2.56-.25.59-.44.89-1.18.88-1.91V.02z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/lets_work_international_/" target="_blank" class="p-2 bg-white/5 rounded-full hover:bg-[#A13CB8] hover:text-white smooth-transition" title="Instagram" aria-label="Instagram">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: LOGICA EN DATABASE (DE FIX) -->
+    <script>
+        // Standaard database met voorbeeldvacatures (wordt overschreven door jouw bewerkingen)
+        const defaultVacancies = [
+            { id: 1, titleNl: "Schoonmaak Medewerker Hotel", sector: "Schoonmaak", location: "Amsterdam", hours: "24 - 32", salary: "€14,50 p/u", descNl: "Voor luxe hotels in Amsterdam zoeken we representatieve schoonmaakkrachten. Flexibele uren en een erg gezellig team!" },
+            { id: 2, titleNl: "Logistiek Orderpicker / Inpakker", sector: "Logistiek", location: "Rotterdam Maasvlakte", hours: "38 - 40", salary: "€15,20 p/u", descNl: "Wil jij aan de slag in een modern distributiecentrum? Help ons met het verwerken en verzenden van orders in een internationale sfeer." },
+            { id: 3, titleNl: "Productiemedewerker Verpakkingslijn", sector: "Productie", location: "Westland", hours: "36 - 40", salary: "€13,80 p/u", descNl: "Vind jij het leuk om fysiek bezig te zijn in een schone, moderne productieomgeving? Kom groente en planten verpakken!" }
+        ];
+
+        // Laad vacatures uit localStorage of gebruik de standaardlijst
+        let vacatures = JSON.parse(localStorage.getItem('lwi_vacatures')) || defaultVacancies;
+        let selectedSector = 'All';
+        let searchKeyword = '';
+
+        // ROUTER SYSTEM: Navigeer tussen "pagina's" (sections verbergen/tonen)
+        const routes = ['home', 'about', 'vacancies', 'employers', 'contact', 'admin'];
+
+        function navigate(route) {
+            // Als de ingevoerde route niet bestaat, ga naar home
+            if (!routes.includes(route)) {
+                route = 'home';
+            }
+
+            // Verberg expliciet ALLE page-views door de CSS-klasse ".hidden" (die is !important)
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.add('hidden');
+                view.classList.remove('block');
+            });
+
+            // Toon de gekozen route
+            const activeView = document.getElementById(`view-${route}`);
+            if (activeView) {
+                activeView.classList.remove('hidden');
+                activeView.classList.add('block');
+            }
+
+            // Scroll soepel naar de top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Update actieve kleuren in het menu
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const target = link.getAttribute('data-target');
+                if (target === route) {
+                    link.classList.add('text-[#A13CB8]');
+                    link.classList.remove('text-slate-600');
+                } else {
+                    link.classList.remove('text-[#A13CB8]');
+                    link.classList.add('text-slate-600');
+                }
+            });
+
+            // Adresbalk netjes updaten
+            if (window.location.hash !== `#/${route}`) {
+                window.location.hash = `#/${route}`;
+            }
+        }
+
+        // Luister naar de browser knoppen (Terug/Vooruit)
+        window.addEventListener('hashchange', () => {
+            const rawHash = window.location.hash.replace('#/', '');
+            navigate(rawHash || 'home');
+        });
+
+        // Spotlight render (max 3 vacatures tonen op de home en employers pagina)
+        function renderSpotlights() {
+            const grids = document.querySelectorAll('#spotlight-vacancies-grid');
+            if (!grids) return;
+            
+            let html = '';
+            const spotlights = vacatures.slice(0, 3);
+            
+            spotlights.forEach(job => {
+                let iconName = job.sector === "Logistiek" ? "package" : "brush";
+                if (job.sector === "Productie") iconName = "settings";
+
+                html += `
+                    <div class="bg-white rounded-2xl border border-slate-100 p-5 sm:p-6 shadow-md hover:shadow-xl smooth-transition flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start">
+                                <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+                                    <i data-lucide="${iconName}" class="w-5 h-5 text-[#A13CB8]"></i>
+                                </div>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase rounded-md bg-purple-50 border border-purple-100 text-[#A13CB8]">${job.sector}</span>
+                            </div>
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-900 line-clamp-1">${job.titleNl}</h3>
+                                <div class="flex items-center space-x-1.5 text-xs text-slate-500 mt-1.5">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                                    <span>${job.location}</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">${job.descNl}</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div class="text-left">
+                                <p class="text-[10px] uppercase font-bold text-slate-400">Salaris indicatie</p>
+                                <p class="text-xs font-bold text-slate-800">${job.salary}</p>
+                            </div>
+                            <button onclick="openVacancyDetails(${job.id})" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white rounded-lg smooth-transition bg-[#A13CB8] hover:bg-purple-700">
+                                Bekijk vacature
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            grids.forEach(grid => { grid.innerHTML = html; });
+            lucide.createIcons();
+        }
+
+        // Full Vacancy list renderer (in de vacature pagina)
+        function renderVacancies() {
+            renderSpotlights(); 
+
+            const grid = document.getElementById('vacancies-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const filtered = vacatures.filter(job => {
+                const matchesSector = selectedSector === "All" || job.sector === selectedSector;
+                
+                const titleText = job.titleNl.toLowerCase();
+                const descText = job.descNl.toLowerCase();
+                const locText = job.location.toLowerCase();
+                const searchInput = document.getElementById('job-search-filter');
+                const keyword = searchInput ? searchInput.value.toLowerCase() : "";
+                
+                const matchesSearch = titleText.includes(keyword) || descText.includes(keyword) || locText.includes(keyword);
+
+                return matchesSector && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-slate-200">
+                        <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="search-x" class="w-8 h-8 text-slate-400"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800">Geen vacatures gevonden</h4>
+                        <p class="text-xs text-slate-500 mt-1">Probeer een andere filter of zoekterm, of stuur een open sollicitatie!</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            filtered.forEach(job => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-100 p-5 sm:p-6 shadow-md hover:shadow-xl smooth-transition flex flex-col justify-between";
+                
+                let iconName = "brush";
+                if (job.sector === "Logistiek") iconName = "package";
+                if (job.sector === "Productie") iconName = "settings";
+
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+                                <i data-lucide="${iconName}" class="w-5 h-5 text-[#A13CB8]"></i>
+                            </div>
+                            <span class="px-2.5 py-1 text-[10px] font-bold uppercase rounded-md bg-purple-50 border border-purple-100 text-[#A13CB8]">${job.sector}</span>
+                        </div>
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-900 line-clamp-1">${job.titleNl}</h3>
+                            <div class="flex items-center space-x-1.5 text-xs text-slate-500 mt-1.5">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                                <span>${job.location}</span>
+                            </div>
+                            <div class="flex items-center space-x-1.5 text-xs text-slate-500 mt-1">
+                                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                <span>${job.hours} uur</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">${job.descNl}</p>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div class="text-left">
+                            <p class="text-[10px] uppercase font-bold text-slate-400">Salaris indicatie</p>
+                            <p class="text-xs font-bold text-slate-800">${job.salary}</p>
+                        </div>
+                        <button onclick="openVacancyDetails(${job.id})" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white rounded-lg smooth-transition shadow-md bg-[#A13CB8] hover:bg-purple-700">
+                            Bekijk vacature
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Sector filter navigatie
+        function filterVacancies(sector) {
+            selectedSector = sector;
+            
+            const buttons = document.querySelectorAll('.sector-tab-btn');
+            buttons.forEach(btn => {
+                const clickAttr = btn.getAttribute('onclick');
+                if (clickAttr && clickAttr.includes(`'${sector}'`)) {
+                    btn.className = "sector-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold rounded-full border border-slate-200 text-white smooth-transition shadow-sm bg-[#A13CB8]";
+                } else {
+                    btn.className = "sector-tab-btn px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold rounded-full border border-slate-200 hover:bg-slate-50 smooth-transition text-slate-600 bg-white";
+                }
+            });
+
+            renderVacancies();
+        }
+
+        function filterVacanciesBySearch() {
+            renderVacancies();
+        }
+
+        function triggerSearchFromHero() {
+            const heroInput = document.getElementById('hero-search-input');
+            const mainFilterInput = document.getElementById('job-search-filter');
+            
+            if (mainFilterInput && heroInput) {
+                mainFilterInput.value = heroInput.value;
+            }
+            navigate('vacancies');
+        }
+
+        // Contactformulier Layout Toggle
+        function switchContactTab(role) {
+            const candidateBtn = document.getElementById('tab-candidate-btn');
+            const employerBtn = document.getElementById('tab-employer-btn');
+            const formSubjectInput = document.getElementById('form-tab-subject');
+            const uploadContainer = document.getElementById('dynamic-upload-container');
+            const companyContainer = document.getElementById('dynamic-company-container');
+            const formMessage = document.getElementById('form-message');
+
+            if (role === 'candidate') {
+                if (candidateBtn) {
+                    candidateBtn.style.backgroundColor = '#A13CB8';
+                    candidateBtn.className = "flex-1 py-2 sm:py-2.5 rounded-lg text-[11px] sm:text-sm font-bold smooth-transition text-white shadow-md bg-[#A13CB8]";
+                }
+                if (employerBtn) {
+                    employerBtn.style.backgroundColor = 'transparent';
+                    employerBtn.className = "flex-1 py-2 sm:py-2.5 rounded-lg text-[11px] sm:text-sm font-bold smooth-transition text-slate-300 hover:text-white";
+                }
+                
+                if (formSubjectInput) formSubjectInput.value = "Kandidaat (Zoekt werk)";
+                if (uploadContainer) { uploadContainer.style.display = "block"; uploadContainer.classList.remove("hidden-page"); }
+                if (companyContainer) { companyContainer.style.display = "none"; companyContainer.classList.add("hidden-page"); }
+                
+                const formCompany = document.getElementById('form-company');
+                if (formCompany) formCompany.removeAttribute('required');
+                
+                if (formMessage) formMessage.placeholder = "Laat ons weten wie je bent en wat voor werk je zoekt...";
+            } else {
+                if (candidateBtn) {
+                    candidateBtn.style.backgroundColor = 'transparent';
+                    candidateBtn.className = "flex-1 py-2 sm:py-2.5 rounded-lg text-[11px] sm:text-sm font-bold smooth-transition text-slate-300 hover:text-white";
+                }
+                if (employerBtn) {
+                    employerBtn.style.backgroundColor = '#A13CB8';
+                    employerBtn.className = "flex-1 py-2 sm:py-2.5 rounded-lg text-[11px] sm:text-sm font-bold smooth-transition text-white shadow-md bg-[#A13CB8]";
+                }
+                
+                if (formSubjectInput) formSubjectInput.value = "Werkgever (Zoekt personeel)";
+                if (uploadContainer) { uploadContainer.style.display = "none"; uploadContainer.classList.add("hidden-page"); }
+                if (companyContainer) { companyContainer.style.display = "block"; companyContainer.classList.remove("hidden-page"); }
+                
+                const formCompany = document.getElementById('form-company');
+                if (formCompany) formCompany.setAttribute('required', 'true');
+                
+                if (formMessage) formMessage.placeholder = "Welk type personeel zoekt u of welke vacature wilt u bespreken?...";
+            }
+        }
+
+        // Contact Form Mailto Submit Logic
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const phone = document.getElementById('form-phone').value;
+            const message = document.getElementById('form-message').value;
+            const subject = document.getElementById('form-tab-subject').value;
+            const companyEl = document.getElementById('form-company');
+            const company = companyEl && companyEl.value ? companyEl.value : '';
+
+            // Genereer mailto inhoud voor de mail client
+            const emailBody = `Beste Janneke en Yana,\n\nEr is een nieuw contactverzoek binnengekomen via de website:\n\nType: ${subject}\nNaam: ${name}\nE-mailadres: ${email}\nTelefoonnummer: ${phone}\n${company ? 'Bedrijf: ' + company + '\n' : ''}\nBericht:\n${message}\n\nMet vriendelijke groet,\n${name}`;
+            const mailtoUrl = `mailto:info@letsworkinternational.nl?subject=Website Contactverzoek: ${subject}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Toon succes-alert op het scherm
+            const successAlert = document.getElementById('form-success-alert');
+            if (successAlert) successAlert.classList.remove('hidden');
+
+            // Open de mail client van de gebruiker
+            setTimeout(() => {
+                window.location.href = mailtoUrl;
+            }, 500);
+
+            // Formulier wissen
+            document.getElementById('form-name').value = '';
+            document.getElementById('form-email').value = '';
+            document.getElementById('form-phone').value = '';
+            document.getElementById('form-message').value = '';
+            if (companyEl) companyEl.value = '';
+
+            setTimeout(() => {
+                if (successAlert) successAlert.classList.add('hidden');
+            }, 8000);
+        }
+
+        // Vacature Details Modals
+        function openVacancyDetails(jobId) {
+            const job = vacatures.find(j => j.id === jobId);
+            if (!job) return;
+
+            const modal = document.getElementById('vacancy-modal');
+            const content = document.getElementById('modal-content-area');
+            
+            const title = job.titleNl;
+            const desc = job.descNl;
+
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <div class="inline-flex px-3 py-1 bg-purple-50 border border-purple-100 rounded-full text-xs font-bold text-purple-700 uppercase">
+                        ${job.sector}
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">${title}</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4 py-3 border-y border-slate-100 my-4 text-xs">
+                        <div>
+                            <span class="block text-slate-400 font-semibold uppercase tracking-wider">Regio</span>
+                            <span class="font-bold text-slate-800">${job.location}</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400 font-semibold uppercase tracking-wider">Werkuren</span>
+                            <span class="font-bold text-slate-800">${job.hours} uur</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400 font-semibold uppercase tracking-wider">Salaris</span>
+                            <span class="font-bold text-emerald-600">${job.salary}</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400 font-semibold uppercase tracking-wider">Begeleiding</span>
+                            <span class="font-bold text-slate-800">Persoonlijk (A-Z)</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${desc}</p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                        <button onclick="applyToJobDirectly('${title}')" class="w-full sm:flex-1 py-3 px-4 text-white font-bold rounded-xl smooth-transition shadow-lg text-xs text-center bg-[#A13CB8] hover:bg-purple-700">
+                            Solliciteer direct
+                        </button>
+                        <button onclick="closeVacancyModal()" class="w-full sm:w-auto py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl smooth-transition text-xs text-center">
+                            Sluiten
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            lucide.createIcons();
+        }
+
+        function closeVacancyModal() {
+            document.getElementById('vacancy-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function applyToJobDirectly(jobTitle) {
+            closeVacancyModal();
+            navigate('contact');
+            switchContactTab('candidate');
+            
+            setTimeout(() => {
+                document.getElementById('global-contact-forms').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('form-message').value = `Hoi Janneke en Yana, ik solliciteer graag direct op de vacature: "${jobTitle}". Ik hoor heel graag snel van jullie!`;
+            }, 300);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        // --- CUSTOM MODALS VOOR ALERTS EN PROMPTS (Geen popups block meer!) ---
+        
+        function loginAdmin() {
+            document.getElementById('admin-password-input').value = '';
+            document.getElementById('admin-login-error').classList.add('hidden');
+            document.getElementById('admin-login-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function checkAdminPassword() {
+            const code = document.getElementById('admin-password-input').value;
+            if (code === "letswork") {
+                closeAdminLoginModal();
+                navigate('admin');
+                renderAdminList();
+            } else {
+                document.getElementById('admin-login-error').classList.remove('hidden');
+            }
+        }
+
+        function openLokaalModal() {
+            document.getElementById('lokaal-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            lucide.createIcons();
+        }
+
+        function closeLokaalModal() {
+            document.getElementById('lokaal-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // --- BEHEERPANEEL LOGICA ---
+
+        function renderAdminList() {
+            const listContainer = document.getElementById('admin-vacancies-list');
+            if (!listContainer) return;
+
+            let html = "";
+            vacatures.forEach((v, index) => {
+                html += `
+                    <div class="p-4 bg-slate-50 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border border-slate-200 shadow-sm">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">${v.titleNl} <span class="text-xs font-normal text-slate-400">(${v.location})</span></h4>
+                            <p class="text-xs text-slate-500 mt-0.5">${v.sector} &bull; ${v.hours} uur &bull; ${v.salary}</p>
+                        </div>
+                        <div class="flex gap-2 w-full sm:w-auto justify-end">
+                            <button onclick="editVacature(${index})" class="px-3 py-1.5 bg-amber-500 text-white rounded-lg text-xs font-bold hover:bg-amber-600 smooth-transition">Bewerken</button>
+                            <button onclick="triggerDeleteVacature(${index})" class="px-3 py-1.5 bg-red-600 text-white rounded-lg text-xs font-bold hover:bg-red-700 smooth-transition">Verwijderen</button>
+                        </div>
+                    </div>
+                `;
+            });
+            listContainer.innerHTML = html || `<p class="text-xs text-slate-400">Er zijn momenteel geen vacatures.</p>`;
+        }
+
+        function saveVacature(e) {
+            e.preventDefault();
+            const index = document.getElementById('edit-index').value;
+            
+            const newJob = {
+                id: index !== "" ? vacatures[index].id : Date.now(),
+                titleNl: document.getElementById('admin-title-nl').value,
+                location: document.getElementById('admin-location').value,
+                sector: document.getElementById('admin-sector').value,
+                hours: document.getElementById('admin-hours').value,
+                salary: document.getElementById('admin-salary').value,
+                descNl: document.getElementById('admin-desc-nl').value
+            };
+
+            if (index !== "") {
+                vacatures[index] = newJob; // Update existing
+            } else {
+                vacatures.push(newJob); // Add new
+            }
+
+            // Opslaan in lokaal geheugen
+            localStorage.setItem('lwi_vacatures', JSON.stringify(vacatures));
+            
+            // Reset formulier
+            document.getElementById('admin-job-form').reset();
+            document.getElementById('edit-index').value = "";
+            document.getElementById('admin-form-title').textContent = "Nieuwe Vacature Toevoegen";
+            
+            renderAdminList();
+            renderVacancies();
+            
+            // Toon de groene succesmelding
+            const successMsg = document.getElementById('admin-success-msg');
+            if (successMsg) {
+                successMsg.classList.remove('hidden');
+                setTimeout(() => successMsg.classList.add('hidden'), 4000);
+            }
+        }
+
+        function editVacature(index) {
+            const v = vacatures[index];
+            document.getElementById('edit-index').value = index;
+            document.getElementById('admin-title-nl').value = v.titleNl;
+            document.getElementById('admin-location').value = v.location;
+            document.getElementById('admin-sector').value = v.sector;
+            document.getElementById('admin-hours').value = v.hours;
+            document.getElementById('admin-salary').value = v.salary;
+            document.getElementById('admin-desc-nl').value = v.descNl;
+            
+            document.getElementById('admin-form-title').textContent = "Vacature Bewerken (ID: " + (index + 1) + ")";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Custom Delete Modal logica
+        function triggerDeleteVacature(index) {
+            document.getElementById('delete-target-index').value = index;
+            document.getElementById('delete-confirm-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('delete-confirm-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function confirmDeleteVacature() {
+            const index = document.getElementById('delete-target-index').value;
+            vacatures.splice(index, 1);
+            localStorage.setItem('lwi_vacatures', JSON.stringify(vacatures));
+            closeDeleteModal();
+            renderAdminList();
+            renderVacancies();
+        }
+
+        // --- INITIATIE (Opstarten van de website) ---
+        window.onload = function() {
+            lucide.createIcons();
+            setLanguage('nl');
+            
+            // Lees de actieve pagina uit de link (bijv #/contact) en laad deze in
+            const initialRoute = window.location.hash.replace('#/', '');
+            navigate(initialRoute || 'home');
+        };
+    </script>
+</body>
+</html>
